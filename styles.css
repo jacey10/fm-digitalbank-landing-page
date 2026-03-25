@@ -1,11 +1,11 @@
 /* === FONTS === */
 
 @font-face {
-  font-display: swap; 
+  font-display: swap;
   font-family: 'Public Sans';
-  font-style: italic;
+  font-style: normal;
   font-weight: 300;
-  src: url('../fonts/public-sans-v21-latin-300italic.woff2') format('woff2'); 
+  src: url('assets/fonts/public-sans-v21-latin-300.woff2') format('woff2'); 
 }
 
 @font-face {
@@ -13,7 +13,7 @@
   font-family: 'Public Sans';
   font-style: normal;
   font-weight: 400;
-  src: url('../fonts/public-sans-v21-latin-regular.woff2') format('woff2'); 
+  src: url('assets/fonts/public-sans-v21-latin-regular.woff2') format('woff2'); 
 }
 
 @font-face {
@@ -21,7 +21,7 @@
   font-family: 'Public Sans';
   font-style: normal;
   font-weight: 700;
-  src: url('../fonts/public-sans-v21-latin-700.woff2') format('woff2'); 
+  src: url('assets/fonts/public-sans-v21-latin-700.woff2') format('woff2'); 
 }
 
 /* === CSS RESET === */
@@ -100,5 +100,85 @@ textarea:not([rows]) {
 /* Anything that has been anchored to should have extra scroll margin */
 :target {
   scroll-margin-block: 5ex;
+}
+
+:root {
+  /* == COLOR PALLETTE == */
+
+  /* Primary Color */
+  --clr-cyan-400: hsl(192, 69%, 51%);
+  --clr-green-500: hsl(136, 64%, 51%);
+  --clr-blue-950: hsl(233, 26%, 24%);
+  
+  
+  /* Neutral Colors */
+  --clr-gray-50: hsl(0, 0%, 98%);
+  --clr-gray-100: hsl(220, 16%, 96%);
+  --clr-gray-600: hsl(233, 8%, 62%);
+  --clr-white: hsl(0, 100%, 100%);
+  
+  
+  /* == TYPOGRAPHY == */
+
+  /* font family */
+  --ff-body: 'Public Sans', sans-serif;
+
+  /* font size */
+  --fs-body: 1.125rem;
+
+  /* font weights */
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-bold: 700;
+
+  /* Spacing */
+  --space-sr:  0.0625rem;
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xlg: 2.5rem;
+  --space-xxlg: 3rem;
+}
+
+/*@media (prefers-reduced-motion: reduce) {
+  .submit--btn {
+    transition: none;
+  }
+}
+
+@media (hover: hover) {
+  .submit--btn:hover {
+    background-color: var(--clr-grey-900);
+    transform: translateY(-0.15rem);
+  }
+
+  input.field:hover {
+    border: 0.095rem solid var(--clr-green-600);;
+  }
+
+  label.consent--label:hover {
+    cursor: pointer;
+  }
+}*/
+
+body {
+  width: 100%;
+  min-height: 100svh;
+  background-color: var(--clr-white);
+  font-family: var(--ff-body);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.5;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14rem;
+  padding: 1.5rem;
 }
 
