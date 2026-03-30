@@ -181,7 +181,7 @@ nav {
 
 nav a {
   text-decoration: none;
-  font-size: 0.875rem;
+  font-size: 1.2rem;
   color: var(--clr-blue-950);
   position: relative;
   height: 64px;
@@ -345,7 +345,7 @@ header nav a::after {
 .article__wrapper {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
+  align-items: center;
   justify-content: center;
   gap: 1rem;
 }
@@ -392,6 +392,7 @@ footer {
   height: auto;
   background: var(--clr-blue-950);
   display: grid;
+  grid-template-columns: 1fr;
   place-items: center;
   gap: 1rem;
 }
@@ -528,36 +529,55 @@ footer .footer__social--links {
   .footer {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     place-items: center;
     gap: 3rem 7rem;
-    padding: 1rem 6rem;
+    padding: 3rem 6rem;
   }
 
   .footer--first {
     justify-self: start;
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+  }
+
+  .footer--second, .footer--third {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .footer__nav {
     justify-self: center;
+
+  }
+
+  .footer nav a {
+    font-size: 1.4rem;
+    white-space: nowrap;
   }
 
   .footer--last {
     justify-self: end;
-    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+  }
+
+  .footer--last button {
+    align-self: flex-end;
   }
 
   .footer__nav .footer__nav--links {
     display: flex;
     flex-direction: row;
-    gap: 2rem;
+    gap: 10rem;
   }
 
   .footer--last p {
     color: var(--clr-white);
   }
-
- 
 }
 
 
