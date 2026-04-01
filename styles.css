@@ -249,6 +249,7 @@ header nav a::after {
   cursor: pointer;
   transition: opacity 0.2s;
   white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .btn1 {
@@ -267,6 +268,7 @@ header nav a::after {
   flex-direction: column;
   gap: 4px;
   padding: 4x;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .bar {
