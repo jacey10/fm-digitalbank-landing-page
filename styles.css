@@ -176,7 +176,7 @@ header {
 }
 
 .overlay {
-  position: fixed;
+  position: absolute;
   top: 5rem;
   left: 50%;
   transform: translateX(-50%) translateY(-20px);
@@ -187,6 +187,7 @@ header {
   opacity: 0;
   pointer-events: none;
   transition: transform 0.3s ease, opacity 0.3s ease;
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.07);
   z-index: 100;
 }
 
@@ -199,6 +200,8 @@ header {
 .overlay.open nav {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 nav {
@@ -258,6 +261,7 @@ header nav a::after {
   z-index: 200;
   background: none;
   border: none;
+  outline: none;
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -273,6 +277,19 @@ header nav a::after {
   border-radius: 2px;
   transition: transform 0.35s ease;
   transform-origin: center;
+}
+
+.menu--btn.open .bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menu--btn.open .bar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.menu--btn.open .bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 .hero__container {
@@ -456,19 +473,6 @@ footer .footer__social--links {
 
   .logo--container {
     margin-inline-start: -3rem;
-  }
-
-  .overlay {
-    position: static;
-    width: auto;
-    height: auto;
-    background: none;
-    transform: none;
-    transition: none;
-    z-index: auto;
-    opacity: 1;
-    pointer-events: all;
-    padding: 0;
   }
   
   nav {

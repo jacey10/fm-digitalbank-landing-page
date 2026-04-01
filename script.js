@@ -1,6 +1,30 @@
 const menuBtn = document.getElementById('menuBtn');
 const overlay = document.getElementById('menuOverlay');
 
-menuBtn.addEventListener('click', () => {
+function openMenu() {
+    if (!overlay.querySelector('header nav')) {
+        const nav = document.querySelector('header nav');
+        const clonedNav = nav.cloneNode('true');
+        overlay.appendChild(clonedNav);
+    } 
     overlay.classList.add('open');
-})
+    menuBtn.classList.add('open');
+    menuBtn.setAttribute('aria-exapnded', true);   
+}
+
+function closeMenu() {
+    overlay.innerHTML = '';
+    overlay.classList.remove('open');
+    menuBtn.classList.remove('open');
+    menuBtn.setAttribute('aria-exapnded', false);
+}
+
+menuBtn.addEventListener('click', () => {
+    overlay.classList.contains('open')? closeMenu() : openMenu();
+});
+
+document.addEventListener('click', (e) => {
+    if (!overlay.contains(e.target) && !menuBtn.contains(e.target)) {
+        closeMenu();
+    }
+});
