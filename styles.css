@@ -245,7 +245,7 @@ header nav a::after {
   display: inline-block;
   padding: 0.65rem 1rem;
   border-radius: 100px;
-  font-size: 0.8rem;
+  font-size: 0.8em;
   font-weight: 700;
   font-family: inherit;
   text-decoration: none;
@@ -337,7 +337,7 @@ header nav a::after {
 }
 
 .hero__content h1 {
-  font-size: clamp(1.5rem, 2.5vw, 3rem);
+  font-size: clamp(1.5rem, 3vw, 5rem);
   font-weight: var(--fw-regular);
   line-height: 1.15;
   color: var(--dark-blue);
@@ -348,7 +348,7 @@ header nav a::after {
 .hero__content p {
   font-size: clamp(1rem, 1.5vw, 2rem);
   line-height: 1.75;
-  color: var(--gray-blue);
+  color: var(--clr-gray-600);
   max-width: 38ch;
   margin-block-end: 1rem;
 }
@@ -364,6 +364,14 @@ header nav a::after {
   justify-content: center;
   background: var(--clr-gray-100);
   padding: 1.5rem;
+}
+
+.offers__heading {
+  font-size: clamp(1.5rem, 2.5vw, 3rem);;
+}
+
+.offers p {
+  color: var(--clr-gray-600);
 }
 
 .intro, .card {
@@ -388,7 +396,8 @@ header nav a::after {
   background: var(--clr-gray-50);
 }
 
-.articles h2 {
+.articles__heading {
+  font-size: clamp(1.5rem, 2.5vw, 3rem);
   margin-block: clamp(1.5rem, 2.5vw, 3rem);
   text-align: center;
 } 
@@ -448,6 +457,7 @@ header nav a::after {
 }
 
 .text p {
+  color: var(--clr-gray-600);
   font-size: 1.15rem;
 }
 
@@ -515,8 +525,66 @@ header nav a::after {
   font-size: 1.2em;
 }
 
+@media screen and (min-width:29.375rem) {
+  .hero__visual {
+    height: 800px;
+  }
 
-@media screen and (min-width:48rem) {
+  .hero__content {
+    margin-block-start: -7rem;
+  }
+
+  .hero__content h1 {
+    font-size: clamp(1.8rem, 6vw, 3rem);
+  }
+}
+
+@media screen and (min-width:56.25rem) {
+
+  .hero__content {
+    margin-block-start: clamp(-5rem, 6vw, -6rem);
+  }
+}
+
+@media screen and (min-width:54.375rem) {
+  header nav {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .btn1 {
+    display: block;
+    padding: 0.8rem 1.5rem;
+    font-size: 1em;
+  }
+
+  .menu--btn {
+    display: none;
+  }
+
+  .btn2 {
+    padding: 0.8rem 1.5rem;
+    font-size: 1em;
+  }
+
+  .offers {
+    margin: 2rem;
+    border-radius: 1rem;
+    padding: 2.5rem 2rem;
+  }
+
+  .article__wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;
+    align-items: stretch;
+  }
+
+}
+
+@media screen and (min-width:64rem) {
 
   header {
     justify-content: space-around;
@@ -528,18 +596,7 @@ header nav a::after {
   }
   
   header nav {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    height: 100%;
-  }
-
-  .btn1 {
-    display: block;
-  }
-
-  .menu--btn {
-    display: none;
+    gap: 2.5rem;
   }
 
   .hero__container {
@@ -575,6 +632,20 @@ header nav a::after {
     margin-block-start: -10rem;
     margin-inline-start: 7rem;
     padding: 1rem;
+    gap: 2rem;
+  }
+
+  .hero__content h1 {
+    text-align: start;
+  }
+
+  .hero__content p {
+    width: 100%;
+    font-size: 1.2rem;
+  }
+
+  .hero__content .btn2 {
+    align-self: flex-start;
   }
 
   .offers {
@@ -589,8 +660,7 @@ header nav a::after {
     margin-block: 6rem 4rem;
   }
 
-  .intro h2 {
-    font-size: 2rem;
+  .offers__heading {
     margin-block-end: 1.3rem;
   }
 
@@ -614,10 +684,7 @@ header nav a::after {
   }
 
   .article__wrapper {
-    display: grid;
     grid-template-columns: repeat(4, 1fr);
-    place-items: center;
-    align-items: stretch;
     gap: 0.5rem;
     padding: 1.5rem;
   }
@@ -665,7 +732,7 @@ header nav a::after {
 
   .footer--last p {
     width: 100%;
-    color: var(--clr-white);
+    color: var(--clr-gray-600);
     white-space: nowrap;
   }
 }
