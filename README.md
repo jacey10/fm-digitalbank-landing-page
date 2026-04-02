@@ -53,9 +53,19 @@ Users should be able to:
 ### What I learned
 
 - I learned how to how to animate the menu button to an X on open, instead of using or adding an extra element as close button.
+
 ```css
-.proud-of-this-css {
-  color: papayawhip;
+.menu--btn.open .bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menu--btn.open .bar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.menu--btn.open .bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 ```
 - I learned how to use one set of nav links for both desktop header and mobile menu overlay. The nav which is originally in the header is the single source of truth. Instead of duplicating the navs, I cloned the one in the header and added it to the menu overlay once the menu button is clicked.
