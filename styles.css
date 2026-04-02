@@ -151,7 +151,9 @@ textarea:not([rows]) {
   nav a:hover { color: var(--dark-blue); }
   nav a:hover::after { opacity: 1; transform: scaleX(1); }
   .btn:hover { opacity: 0.75; }
-  footer nav a:hover { color: var(--clr-green-500); }
+  .footer nav a:hover { color: var(--clr-green-500); }
+  .article__card:hover {transform: scale(1.1);}
+  .article__title--link:hover{color: var(--clr-green-500);}
 }
 
 
@@ -417,16 +419,15 @@ header nav a::after {
   border-top-right-radius: 1rem;
   margin-block-end: 1.5rem;
   overflow: hidden;
+  transition: transform 0.3s ease;
 }
 
 .article__title--link {
   color: inherit;
   font-weight: var(--fw-bold);
   text-decoration: none; 
-}
-
-.article__title--link:hover{
-  color: var(--clr-green-500);
+  cursor: pointer;
+  transition: color 0.3s ease;
 }
 
 .article__card:last-child {
