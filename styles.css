@@ -206,6 +206,10 @@ header {
   justify-content: center;
 }
 
+.overlay.open nav a {
+  -webkit-tap-highlight-color: transparent;
+}
+
 header nav {
   display: none;
 }
@@ -485,6 +489,10 @@ header nav a::after {
   align-items: center;
   justify-content: center;
   list-style: none;
+}
+
+.footer__nav--first a, .footer__nav--second a {
+  -webkit-tap-highlight-color: transparent;
 }
 
 .footer__nav--links a {
