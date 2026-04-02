@@ -54,12 +54,6 @@ ol[role='list'] {
   list-style: none;
 }
 
-/* Set core body defaults */
-body {
-  min-height: 100vh;
-  line-height: 1.5;
-}
-
 /* Set shorter line heights on headings and interactive elements */
 h1, h2, h3, h4,
 button, input, label {
@@ -142,28 +136,29 @@ textarea:not([rows]) {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  nav a, nav a::after {
+  .bar, nav a, nav a::after, .article__card, .article__title--link, .overlay {
     transition: none;
   }
 }
 
 @media (hover: hover) {
-  nav a:hover { color: var(--dark-blue); }
-  nav a:hover::after { opacity: 1; transform: scaleX(1); }
+  .nav__bar a:hover { color: var(--dark-blue); }
+  .nav__bar a:hover::after { opacity: 1; transform: scaleX(1); }
   .btn:hover { opacity: 0.75; }
-  .footer nav a:hover { color: var(--clr-green-500); }
+  .footer .nav__bar a:hover { color: var(--clr-green-500); }
   .article__card:hover {transform: scale(1.1);}
   .article__title--link:hover{color: var(--clr-green-500);}
 }
 
 
 body {
+  min-height: 100vh;
   color: var(--clr-blue-950);
   font-family: var(--ff-body);
   line-height: 1.5;
 }
 
-header {
+.site__header {
   position: sticky;
   top: 0;
   height: 4rem;
@@ -173,7 +168,7 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 0 clamp(1.5rem, 5vw, 6rem);
-  box-shadow: 0 1px 0 rgba(0,0,0,0.07);
+  box-shadow: 0 0.0625rem 0  rgba(0,0,0,0.07);
   z-index: 200;
 }
 
@@ -189,7 +184,7 @@ header {
   opacity: 0;
   pointer-events: none;
   transition: transform 0.3s ease, opacity 0.3s ease;
-  box-shadow: 5px 5px 5px rgba(0,0,0,0.07);
+  box-shadow: 0.3125rem 0.3125rem 0.3125rem rgba(0,0,0,0.07);
   z-index: 100;
 }
 
@@ -199,42 +194,42 @@ header {
   pointer-events: all;
 }
 
-.overlay.open nav {
+.overlay.open .nav {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.overlay.open nav a {
+.overlay.open .nav__bar a {
   -webkit-tap-highlight-color: transparent;
 }
 
-header nav {
+.site__header .nav__bar {
   display: none;
 }
 
-nav a {
+.site__header nav a {
   text-decoration: none;
   font-size: 1.2rem;
   color: var(--clr-blue-950);
   position: relative;
-  height: 64px;
+  height: 4rem;
   display: flex;
   align-items: center;
   transition: color 0.2s;
 }
 
 /* Gradient underline slides in on hover */
-header nav a::after {
+.site__header nav a::after {
   content: '';
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 3px;
+  height: 0.1875rem;
   background: var(--gradient);
-  border-radius: 2px 2px 0 0;
+  border-radius: 0.125rem 0.125rem 0 0;
   opacity: 0;
   transform: scaleX(0);
   transform-origin: center;
@@ -244,9 +239,9 @@ header nav a::after {
 .btn {
   display: inline-block;
   padding: 0.65rem 1rem;
-  border-radius: 100px;
+  border-radius: 6.25rem;
   font-size: 0.8em;
-  font-weight: 700;
+  font-weight: var(--fw-bold);
   font-family: inherit;
   text-decoration: none;
   background: var(--gradient);
@@ -272,23 +267,23 @@ header nav a::after {
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  padding: 4x;
+  gap: 0.25rem;
+  padding: 0.25rem;
   -webkit-tap-highlight-color: transparent;
 }
 
 .bar {
   display: block;
-  width: 26px;
-  height: 2px;
+  width: 1.625rem;
+  height: 0.125rem;
   background: var(--clr-blue-950);
-  border-radius: 2px;
+  border-radius: 0.125rem;
   transition: transform 0.35s ease;
   transform-origin: center;
 }
 
 .menu--btn.open .bar:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
+  transform: translateY(0.4375rem) rotate(45deg);
 }
 
 .menu--btn.open .bar:nth-child(2) {
@@ -297,7 +292,7 @@ header nav a::after {
 }
 
 .menu--btn.open .bar:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
+  transform: translateY(-0.4375rem) rotate(-45deg);
 }
 
 .hero__container {
@@ -308,7 +303,7 @@ header nav a::after {
 
 .hero__visual {
   position: relative;
-  height: 400px;
+  height: 21.875rem;
 }
 
 .hero__bg {
@@ -412,7 +407,7 @@ header nav a::after {
 
 .article__card .image--container {
   width: 100%;
-  height: 180px;
+  height: 11.25rem;
 }
 
 .article__card img {
@@ -430,6 +425,8 @@ header nav a::after {
   background: var(--clr-white);
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
+  box-shadow: 0.3125rem 0.3125rem 0.3125rem rgba(0,0,0,0.04);
+  padding-block-end: 0.5rem;
   margin-block-end: 1.5rem;
   overflow: hidden;
   transition: transform 0.3s ease;
@@ -527,7 +524,7 @@ header nav a::after {
 
 @media screen and (min-width:29.375rem) {
   .hero__visual {
-    height: 800px;
+    height: 50rem;
   }
 
   .hero__content {
@@ -547,7 +544,7 @@ header nav a::after {
 }
 
 @media screen and (min-width:54.375rem) {
-  header nav {
+  .site__header .nav__bar {
     height: 100%;
     display: flex;
     align-items: center;
@@ -581,12 +578,11 @@ header nav a::after {
     place-items: center;
     align-items: stretch;
   }
-
 }
 
 @media screen and (min-width:64rem) {
 
-  header {
+  .site__header {
     justify-content: space-around;
     gap: 3rem
   }
@@ -595,7 +591,7 @@ header nav a::after {
     margin-inline-start: -3rem;
   }
   
-  header nav {
+  .site__header .nav__bar {
     gap: 2.5rem;
   }
 
@@ -606,7 +602,7 @@ header nav a::after {
   }
 
   .hero__visual{
-    height: 800px;
+    height: 50rem;
     order: 2;
     overflow: hidden;
   }
@@ -615,14 +611,14 @@ header nav a::after {
     position: absolute;
     background: url('assets/images/bg-intro-desktop.svg') left / cover no-repeat;
     min-width: 100%;
-    min-height: 800px;
-    transform: translate(100px, -180px);
+    min-height: 50rem;
+    transform: translate(6.25rem, -11.25rem);
     left: 0;
   }
 
   .hero__mockup {
     width: 70%;
-    min-height: 200px;
+    min-height: 12.5rem;
     top: 50%;
     left: 75%;
     transform: translate(-50%, -50%);
@@ -694,7 +690,7 @@ header nav a::after {
   }
 
   .article__card .image--container {
-    height: 200px;;
+    height: 12.5rem;
   }
 
   .footer {
@@ -715,7 +711,7 @@ header nav a::after {
     align-items: flex-start;
   }
 
-  .footer nav a {
+  .footer__nav--first li a, .footer__nav--second li a {
     font-size: 1.4rem;
     white-space: nowrap;
   }

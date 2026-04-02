@@ -14,12 +14,12 @@
   </head>
 
   <body>
-    <header>
+    <header class="site__header">
       <div class="logo--container">
         <img class="logo" src="assets/logo/logo-dark.svg" alt="">
       </div>
 
-      <nav>
+      <nav class="nav__bar" role="navigation">
         <a href="">Home</a>
         <a href="">About</a>
         <a href="">Contact</a>
@@ -29,7 +29,7 @@
 
       <button type="button" id="inviteBtn1" class="btn btn1">Request Invite</button>
 
-      <button class="menu--btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false" aria-controls="menuOverlay">
+      <button type="button" class="menu--btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false" aria-controls="menuOverlay">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
@@ -182,26 +182,25 @@
 
         </div>
 
-        <nav class="footer__nav">
-          <ul class="footer__nav--links">
-
-            <div class="footer__nav--first">
-              <li><a href="">About Us</a></li>
-              <li><a href="">Contact</a></li>
-              <li><a href="">Blog</a></li>
-            </div>
-
-            <div class="footer__nav--second">
-              <li><a href="">Careers</a></li>
-              <li><a href="">Support</a></li>
-              <li><a href="">Privacy Policy</a></li>
-            </div>
+        <nav class="footer__nav" role="navigation">
+          
+          <ul class="footer__nav--first">
+            <li><a href="">About Us</a></li>
+            <li><a href="">Contact</a></li>
+            <li><a href="">Blog</a></li>
           </ul>
+
+          <ul class="footer__nav--second">
+            <li><a href="">Careers</a></li>
+            <li><a href="">Support</a></li>
+            <li><a href="">Privacy Policy</a></li>
+          </ul>
+         
         </nav>
       </div>
 
       <div class="footer--last">
-        <button type="button" id="inviteBtn2" class="btn btn3">Request Invite</button>
+        <button type="button" id="inviteBtn3" class="btn btn3">Request Invite</button>
         <p> © Digitalbank. All Rights Reserved</p>
       </div>
 
