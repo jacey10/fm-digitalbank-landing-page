@@ -28,3 +28,28 @@ document.addEventListener('click', (e) => {
         closeMenu();
     }
 });
+
+const animatedEls = document.querySelectorAll('.hero__visual, .cards, .article__wrapper');
+
+const revealOnScroll = (entries, observer) => {
+  const [entry] = entries;
+
+  if (!entry.isIntersecting) return;
+
+  entry.target.classList.add('animate__animated');
+
+  if (entry.target.classList.contains('cards')) {
+    entry.target.classList.add('animate__slideInLeft');
+  } else {
+    entry.target.classList.add('animate__slideInRight');
+  }
+
+  observer.unobserve(entry.target);
+};
+
+const scrollObserver = new IntersectionObserver(revealOnScroll, {
+  root: null,
+  threshold: 0.1,
+});
+
+animatedEls.forEach((el) => scrollObserver.observe(el));
