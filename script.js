@@ -29,7 +29,9 @@ document.addEventListener('click', (e) => {
     }
 });
 
-const animatedEls = document.querySelectorAll('.hero__visual, .cards, .article__wrapper');
+const animatedEls = document.querySelectorAll('.hero__visual, .offers, .article__card');
+
+let cardIndex = 0;
 
 const revealOnScroll = (entries, observer) => {
   const [entry] = entries;
@@ -38,7 +40,7 @@ const revealOnScroll = (entries, observer) => {
 
   entry.target.classList.add('animate__animated');
 
-  if (entry.target.classList.contains('cards')) {
+  if (entry.target.classList.contains('offers')) {
     entry.target.classList.add('animate__slideInLeft');
   } else {
     entry.target.classList.add('animate__slideInRight');
@@ -49,7 +51,7 @@ const revealOnScroll = (entries, observer) => {
 
 const scrollObserver = new IntersectionObserver(revealOnScroll, {
   root: null,
-  threshold: 0.1,
+  threshold: 0.8,
 });
 
 animatedEls.forEach((el) => scrollObserver.observe(el));

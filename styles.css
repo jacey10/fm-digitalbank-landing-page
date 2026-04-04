@@ -200,10 +200,11 @@ body {
   align-items: center;
   justify-content: center;
   gap: var(--space-sm);
-  padding: var(--space-xs);
+  padding-block: var(--space-sm);
 }
 
 .overlay.open .nav__bar a {
+  font-size: clamp(1.5rem, 1.5vw, 2rem);
   text-decoration: none;
   -webkit-tap-highlight-color: transparent;
 }
