@@ -136,16 +136,16 @@ textarea:not([rows]) {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .bar, nav a, nav a::after, .article__card, .article__title--link, .overlay {
+  .bar, nav a, nav a::after, header .nav__bar a, .article__card, .article__title--link, .overlay {
     transition: none;
   }
 }
 
 @media (hover: hover) {
-  .nav__bar a:hover { color: var(--dark-blue); }
-  .nav__bar a:hover::after { opacity: 1; transform: scaleX(1); }
+  nav a:hover { color: var(--dark-blue); }
+  nav a:hover::after { opacity: 1; transform: scaleX(1); }
   .btn:hover { opacity: 0.75; }
-  .footer .footer__nav a:hover { color: var(--clr-green-500); }
+  footer .footer__nav a:hover { color: var(--clr-green-500); }
   .article__card:hover {transform: scale(1.1);}
   .article__title--link:hover{color: var(--clr-green-500);}
 }
@@ -209,11 +209,11 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
-.site__header .nav__bar {
+header .nav__bar {
   display: none;
 }
 
-.site__header nav a {
+header .nav__bar a {
   text-decoration: none;
   font-size: 1.2rem;
   color: var(--clr-blue-950);
@@ -225,7 +225,7 @@ body {
 }
 
 /* Gradient underline slides in on hover */
-.site__header nav a::after {
+header .nav__bar a::after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -616,7 +616,7 @@ body {
   }
 
   .logo--container {
-    margin-inline-start: - var(--space-xxlg);
+    margin-inline-start: -2rem;
   }
   
   .site__header .nav__bar {
@@ -661,6 +661,7 @@ body {
 
   .hero__content h1 {
     text-align: start;
+    text-wrap: wrap;
   }
 
   .hero__content p {
