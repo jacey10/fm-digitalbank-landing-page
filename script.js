@@ -33,7 +33,7 @@ const isMobile = window.innerWidth < 870;
 
 const animatedEls = document.querySelectorAll(
   isMobile 
-    ? '.hero__visual, .offers, .article__card' 
+    ? '.hero__visual, .intro, .card, .article__card' 
     : '.hero__visual, .offers, .article__wrapper'
 );
 
@@ -46,10 +46,14 @@ const revealOnScroll = (entries, observer) => {
 
   if (isMobile && entry.target.classList.contains('article__card')) {
     entry.target.classList.add('animate__fadeInUp');
+  } else if (isMobile && entry.target.classList.contains('card')) {
+    entry.target.classList.add('animate__slideInLeft');
+  } else if (isMobile && entry.target.classList.contains('intro')) {
+    entry.target.classList.add('animate__slideInLeft');
   } else if (entry.target.classList.contains('offers')) {
     entry.target.classList.add('animate__slideInLeft');
   } else {
-    entry.target.classList.add('animate__slideInRight');
+    entry.target.classList.add('animate__slideInRight'); // hero__visual and article__wrapper
   }
 
   entry.target.addEventListener('animationend', () => {
