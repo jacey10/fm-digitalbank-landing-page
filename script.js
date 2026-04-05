@@ -29,7 +29,13 @@ document.addEventListener('click', (e) => {
   }
 });
 
-const animatedEls = document.querySelectorAll('.hero__visual, .offers, .article__card');
+const isMobile = window.innerWidth < 870;
+
+const animatedEls = document.querySelectorAll(
+  isMobile 
+    ? '.hero__visual, .offers, .article__card' 
+    : '.hero__visual, .offers, .article__wrapper'
+);
 
 const revealOnScroll = (entries, observer) => {
   const [entry] = entries;
@@ -38,18 +44,29 @@ const revealOnScroll = (entries, observer) => {
 
   entry.target.classList.add('animate__animated');
 
-  if (entry.target.classList.contains('offers')) {
+  if (isMobile && entry.target.classList.contains('article__card')) {
+    entry.target.classList.add('animate__fadeInUp');
+  } else if (entry.target.classList.contains('offers')) {
     entry.target.classList.add('animate__slideInLeft');
   } else {
     entry.target.classList.add('animate__slideInRight');
   }
+
+  entry.target.addEventListener('animationend', () => {
+    entry.target.classList.remove(
+      'animate__animated', 
+      'animate__slideInLeft', 
+      'animate__slideInRight',
+      'animate__fadeInUp'
+    );
+  }, { once: true });
 
   observer.unobserve(entry.target);
 };
 
 const scrollObserver = new IntersectionObserver(revealOnScroll, {
   root: null,
-  threshold: 0.8,
+  threshold: isMobile ? 0.3 : 0.8,
 });
 
 animatedEls.forEach((el) => scrollObserver.observe(el));
